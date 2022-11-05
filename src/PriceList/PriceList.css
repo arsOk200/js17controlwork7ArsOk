@@ -1,0 +1,17 @@
+.price-item{
+    width: 100%;
+    border-bottom:1px solid #252525;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btn{
+    padding: 10px;
+    background-color: cornflowerblue;
+    border: #252525 1px solid;
+}
+.btn:hover{
+    cursor: pointer;
+    background-color: rgb(67, 101, 165);
+}

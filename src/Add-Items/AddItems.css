@@ -1,0 +1,21 @@
+.img{
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+.addItem{
+    padding:5px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    border-bottom: 1px solid #252525;
+}
+.addItem:hover{
+    background-color: crimson;
+    color: white;
+}
+.item-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
