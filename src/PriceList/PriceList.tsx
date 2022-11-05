@@ -5,16 +5,20 @@ interface Props{
   count:number,
   price:number,
   key:string,
-  // onDelete:React.MouseEventHandler;
+  onDelete:React.MouseEventHandler;
 }
 
 const PriceList:React.FC<Props> = (props) => {
+  let block = 'price-item';
+  if(props.price === 0 ) {
+    block = block + ' none'
+  }
   return (
-    <div className="price-item">
+    <div className={block}>
       <span>{props.name}</span>
       <strong>x {props.count}</strong>
       <span>{props.price} KGS</span>
-      <button className="btn">X</button>
+      <button className="btn" onClick={props.onDelete}>X</button>
     </div>
   );
 };

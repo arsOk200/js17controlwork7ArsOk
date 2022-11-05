@@ -7,12 +7,10 @@ import PizzaImg from './assets/pizza.png';
 import ChickenImg from './assets/chicken.png';
 import AddItems from "./Add-Items/AddItems";
 import PriceList from "./PriceList/PriceList";
+import TotalPrice from "./TotalPrice/TotalPrice";
 
 function App() {
-
-  // const [food, setFood] = useState([]);
-
-  const [foodCount, setFoodCount] = useState([
+  const [food, setFood] = useState([
     {name:'Coffee', price:0, id:'1',count:0},
     {name:'Tea', price:0, id:'2',count:0},
     {name:'Cola', price:0, id:'3',count:0},
@@ -22,28 +20,32 @@ function App() {
   ]);
 
   const FOODEXAMPLE: foodExample[] = [
-    {name:'Coffee', image:CupImg , price:40, id:'1'},
-    {name:'Tea',image:CupImg, price:50, id:'2'},
-    {name:'Cola',image:BottleImg, price:55, id:'3'},
-    {name:'Burger',image:BurgerImg, price:100, id:'4'},
-    {name:'Pizza',image:PizzaImg, price:90, id:'5'},
-    {name:'Chicken',image:ChickenImg, price:150, id:'6'},
+    {name:'Coffee', image:CupImg , price:35, id:'1'},
+    {name:'Tea',image:CupImg, price:20, id:'2'},
+    {name:'Cola',image:BottleImg, price:90, id:'3'},
+    {name:'Burger',image:BurgerImg, price:200, id:'4'},
+    {name:'Pizza',image:PizzaImg, price:600, id:'5'},
+    {name:'Chicken',image:ChickenImg, price:450, id:'6'},
   ];
 
   const onAdd = (id:string) => {
-    setFoodCount(prev => prev.map(item => {
+    setFood(prev => prev.map(item => {
       return item.id ===id ? {
         ...item,
         count: item.count +1 ,
         price: FOODEXAMPLE[parseInt(id)-1].price + item.price,
       }:item;
     }));
-    // setFood( prev => prev.map(item => {
-    //   return item.id !== id ? {
-    //     ...item,
-    //     foodCount[parseInt(id)-1],
-    //   }:item;
-    // }));
+  };
+
+  const onDelete = (id:string) => {
+    setFood(prev => prev.map(item => {
+      return item.id ===id ? {
+        ...item,
+        count: 0 ,
+        price: 0,
+      }:item;
+    }));
   };
 
   return (
@@ -62,13 +64,19 @@ function App() {
           </div>
 
           <div className="priceList">
-            {foodCount.map((item) =>
+            {food.map((item) =>
             <PriceList
               price={item.price}
               name={item.name}
               key={item.id}
               count={item.count}
+              onDelete={()=> onDelete(item.id)}
             />)}
+            <TotalPrice
+              total={food.reduce((acc, money)=> {
+                return acc+ money.price;
+              },0)}
+            />
           </div>
         </div>
     </div>

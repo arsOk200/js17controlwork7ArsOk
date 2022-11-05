@@ -7,11 +7,15 @@
     align-items: center;
 }
 .btn{
-    padding: 10px;
-    background-color: cornflowerblue;
+    color: white;
+    padding: 10px 15px;
+    background-color: #252525;
     border: #252525 1px solid;
 }
 .btn:hover{
     cursor: pointer;
-    background-color: rgb(67, 101, 165);
+    background-color: black;
+}
+.none{
+    display: none;
 }
