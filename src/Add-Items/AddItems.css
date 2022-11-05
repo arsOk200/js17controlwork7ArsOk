@@ -4,12 +4,14 @@
     padding: 5px;
 }
 .addItem{
+    color: black;
     padding:5px;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
     border-bottom: 1px solid #252525;
 }
+
 .addItem:hover{
     background-color: crimson;
     color: white;

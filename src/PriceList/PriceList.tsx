@@ -17,7 +17,7 @@ const PriceList:React.FC<Props> = (props) => {
     <div className={block}>
       <span>{props.name}</span>
       <strong>x {props.count}</strong>
-      <span>{props.price} KGS</span>
+      <span className='price-text'>{props.price} KGS</span>
       <button className="btn" onClick={props.onDelete}>X</button>
     </div>
   );
