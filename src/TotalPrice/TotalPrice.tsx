@@ -17,8 +17,8 @@ const TotalPrice:React.FC<Props> = (props) => {
   } else{
     return (
       <div className="total-price">
-        <span>Total:</span>
-        <strong className='total-price-text'>{props.total}</strong>
+        <span>Total price:</span>
+        <strong className='total-price-text'>{props.total} KGS</strong>
       </div>
     );
   }
